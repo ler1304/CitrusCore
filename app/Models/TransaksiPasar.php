@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Attributes\Computed;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -48,8 +48,8 @@ class TransaksiPasar extends Model
         });
     }
 
-    #[Computed]
-    public function marginPersen(): float
+
+    public function getMarginPersenAttribute(): float
     {
         $hargaKonsumen = (float) ($this->harga_konsumen_per_kg ?? 0);
         $hargaPetani = (float) ($this->harga_per_kg ?? 0);
