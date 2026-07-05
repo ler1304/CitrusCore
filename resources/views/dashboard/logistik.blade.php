@@ -36,6 +36,7 @@
                                 <th>Pedagang</th>
                                 <th>Status Logistik</th>
                                 <th>Kerusakan</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,10 +47,29 @@
                                     <td>{{ $item->pedagang?->nama }}</td>
                                     <td><x-status-badge :status="$item->status_logistik" /></td>
                                     <td>{{ number_format((float) $item->tingkat_kerusakan_persen, 2, ',', '.') }}%</td>
+                                    <td>
+                                        <form method="POST"
+                                            action="{{ route('dashboard.logistik.transaksi.update', $item->id) }}"
+                                            class="flex items-center gap-1.5">
+                                            @csrf
+                                            <select name="status_logistik" class="rounded-lg border-slate-300 text-xs">
+                                                @foreach (['Belum Diproses', 'Di Gudang Sementara', 'Dalam Pengiriman', 'Terkirim'] as $status)
+                                                    <option value="{{ $status }}" @selected($item->status_logistik === $status)>
+                                                        {{ $status }}</option>
+                                                @endforeach
+                                            </select>
+                                            <input type="number" step="0.01" min="0" max="100"
+                                                name="tingkat_kerusakan_persen"
+                                                value="{{ $item->tingkat_kerusakan_persen }}"
+                                                class="w-16 rounded-lg border-slate-300 text-xs" placeholder="%">
+                                            <button
+                                                class="text-xs px-2 py-1.5 rounded-lg bg-emerald-700 text-white whitespace-nowrap">Update</button>
+                                        </form>
+                                    </td>
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="5" class="text-center text-slate-500">Belum ada data logistik.</td>
+                                    <td colspan="6" class="text-center text-slate-500">Belum ada data logistik.</td>
                                 </tr>
                             @endforelse
                         </tbody>
