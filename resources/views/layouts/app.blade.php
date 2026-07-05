@@ -46,6 +46,30 @@
                 </a>
             </nav>
 
+            <p class="mt-5 mb-1.5 px-1 text-xs font-semibold uppercase tracking-wide text-slate-400">Modul Enterprise</p>
+            <nav class="space-y-1.5 text-sm">
+                <a href="{{ route('modules.marketplace.index') }}"
+                    class="sidebar-link {{ request()->routeIs('modules.marketplace.index') ? 'active' : '' }}">
+                    <span class="material-symbols-outlined">sell</span><span>Marketplace</span>
+                </a>
+                <a href="{{ route('modules.kontrak.index') }}"
+                    class="sidebar-link {{ request()->routeIs('modules.kontrak.index') ? 'active' : '' }}">
+                    <span class="material-symbols-outlined">description</span><span>Manajemen Kontrak</span>
+                </a>
+                <a href="{{ route('modules.demand.index') }}"
+                    class="sidebar-link {{ request()->routeIs('modules.demand.index') ? 'active' : '' }}">
+                    <span class="material-symbols-outlined">query_stats</span><span>Demand Intelligence</span>
+                </a>
+                <a href="{{ route('modules.agro.index') }}"
+                    class="sidebar-link {{ request()->routeIs('modules.agro.index') ? 'active' : '' }}">
+                    <span class="material-symbols-outlined">eco</span><span>Farm & Agro-Sensing</span>
+                </a>
+                <a href="{{ route('modules.komunikasi.index') }}"
+                    class="sidebar-link {{ request()->routeIs('modules.komunikasi.index') ? 'active' : '' }}">
+                    <span class="material-symbols-outlined">campaign</span><span>Communication Hub</span>
+                </a>
+            </nav>
+
             <div class="mt-auto pt-4 border-t border-slate-200 space-y-1.5 text-sm">
                 <a href="{{ route('pengaturan') }}"
                     class="sidebar-link {{ request()->routeIs('pengaturan*') ? 'active' : '' }}"><span
