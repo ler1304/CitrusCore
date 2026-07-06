@@ -43,7 +43,7 @@ CitrusCore dibangun untuk:
 - **MySQL** (target utama sesuai rancangan)
 - Kompatibel pengembangan lokal tertentu dengan **SQLite** (beberapa query sudah dibuat portable).
 
----
+--
 
 ## 3) Arsitektur Singkat
 
